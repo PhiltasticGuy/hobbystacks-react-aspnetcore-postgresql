@@ -1,6 +1,6 @@
 {
-  "short_name": "HeroAcademy.WebMvc",
-  "name": "HeroAcademy.WebMvc",
+  "short_name": "HeroAcademy.WebSpa",
+  "name": "HeroAcademy.WebSpa",
   "icons": [
     {
       "src": "favicon.ico",
