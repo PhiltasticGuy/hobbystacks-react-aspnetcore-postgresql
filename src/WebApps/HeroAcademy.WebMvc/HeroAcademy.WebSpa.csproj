@@ -21,6 +21,35 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\App.test.tsx" />
+    <None Remove="ClientApp\src\App.tsx" />
+    <None Remove="ClientApp\src\components\Counter.tsx" />
+    <None Remove="ClientApp\src\components\Courses.tsx" />
+    <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\Home.tsx" />
+    <None Remove="ClientApp\src\components\Layout.tsx" />
+    <None Remove="ClientApp\src\components\NavMenu.tsx" />
+    <None Remove="ClientApp\src\index.tsx" />
+    <None Remove="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\App.test.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\App.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Counter.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Courses.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FetchData.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Home.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Layout.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\NavMenu.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\index.tsx" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

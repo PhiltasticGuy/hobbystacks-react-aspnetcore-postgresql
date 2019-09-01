@@ -1,9 +1,33 @@
 ﻿import React, { Component } from 'react';
 
-export class Courses extends Component {
+interface Course {
+    courseId: number,
+    referenceCode: string,
+    titleEn: string,
+    descriptionEn: string,
+    instructor: Instructor
+};
+
+interface Instructor {
+    instructorId: number,
+    name: string,
+    titleEn: string,
+    email: string,
+    phoneNumber: string
+};
+
+export interface CoursesProps {
+};
+
+interface CoursesState {
+    courses: Course[],
+    loading: boolean
+};
+
+export class Courses extends Component<CoursesProps, CoursesState> {
     static displayName = Courses.name;
 
-    constructor(props) {
+    constructor(props: CoursesProps) {
         super(props);
         this.state = { courses: [], loading: true };
 
@@ -15,7 +39,7 @@ export class Courses extends Component {
             });
     }
 
-    static renderCoursesTable(courses) {
+    static renderCoursesTable(courses: Course[]) {
         return (
             <table className='table table-striped'>
                 <thead>
@@ -27,7 +51,7 @@ export class Courses extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {courses.map(course =>
+                    {courses.map((course: Course) =>
                         <tr key={course.courseId}>
                             <td>{course.referenceCode}</td>
                             <td>{course.titleEn}</td>
