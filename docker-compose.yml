@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  registrar.api:
+    image: ${REGISTRY:-xorcube.azurecr.io}/heroacademy/registrar.api:${TAG:-dev}
+    build:
+      context: .
+      dockerfile: src/Services/Registrar/Registrar.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    networks:
+      - heroacademy
+
+  web.spa:
+    image: ${REGISTRY:-xorcube.azurecr.io}/heroacademy/web.spa:${TAG:-dev}
+    build:
+      context: .
+      dockerfile: src/WebApps/HeroAcademy.WebSpa/Dockerfile.develop
+    depends_on:
+      - registrar.api
+    restart: unless-stopped
+    networks:
+      - heroacademy
+
+networks:
+  heroacademy:

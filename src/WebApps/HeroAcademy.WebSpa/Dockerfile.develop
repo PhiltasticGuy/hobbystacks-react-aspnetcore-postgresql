@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.9 AS base
+WORKDIR /src
+EXPOSE 80
+EXPOSE 443
+
+# Install NodeJS and NPM. (2-step process in Alpine!)
+RUN apk add --update nodejs nodejs-npm
+
+COPY . .
+WORKDIR "/src/src/WebApps/HeroAcademy.WebSpa"
+RUN dotnet restore
+RUN dotnet build --no-restore -c Debug
+
+ENTRYPOINT ["dotnet", "run", "--no-build", "--no-launch-profile", "-c", "Debug", "--"]

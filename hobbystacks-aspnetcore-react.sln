@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registrar.Api", "src\Services\Registrar\Registrar.Api\Registrar.Api.csproj", "{8FB48AAC-8FE3-4F9C-9C3E-192376DB8CF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroAcademy.WebSpa", "src\WebApps\HeroAcademy.WebMvc\HeroAcademy.WebSpa.csproj", "{E975C5A3-6592-4E5E-9CCF-7AB54DF46B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroAcademy.WebSpa", "src\WebApps\HeroAcademy.WebSpa\HeroAcademy.WebSpa.csproj", "{E975C5A3-6592-4E5E-9CCF-7AB54DF46B5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web Apps", "Web Apps", "{A1DA11CC-E761-40A5-A818-82BDFB18AF73}"
 EndProject
@@ -17,13 +17,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9FD8D268-39A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0966E979-D1CB-437E-9C64-D4CAB2027766}"
 	ProjectSection(SolutionItems) = preProject
+		.env = .env
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registrar.UnitTests", "src\Services\Registrar\Registrar.UnitTests\Registrar.UnitTests.csproj", "{43B3D227-B11E-42AF-9A3E-0EC948254B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registrar.UnitTests", "src\Services\Registrar\Registrar.UnitTests\Registrar.UnitTests.csproj", "{43B3D227-B11E-42AF-9A3E-0EC948254B6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registrar.FunctionalTests", "src\Services\Registrar\Registrar.FunctionalTests\Registrar.FunctionalTests.csproj", "{C206CE34-3C0E-408C-86AF-7D8EEFA400DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registrar.FunctionalTests", "src\Services\Registrar\Registrar.FunctionalTests\Registrar.FunctionalTests.csproj", "{C206CE34-3C0E-408C-86AF-7D8EEFA400DA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +86,18 @@ Global
 		{C206CE34-3C0E-408C-86AF-7D8EEFA400DA}.Release|x64.Build.0 = Release|Any CPU
 		{C206CE34-3C0E-408C-86AF-7D8EEFA400DA}.Release|x86.ActiveCfg = Release|Any CPU
 		{C206CE34-3C0E-408C-86AF-7D8EEFA400DA}.Release|x86.Build.0 = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|x64.Build.0 = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Debug|x86.Build.0 = Debug|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|x64.ActiveCfg = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|x64.Build.0 = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
