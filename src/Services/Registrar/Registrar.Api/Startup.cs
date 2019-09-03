@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Registrar.Api.Data;
@@ -21,8 +22,14 @@ namespace Registrar.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<RegistrarContext>();
-            services.AddTransient<ICourseRepository, CourseRepository>();
+            // Add PostgresSQL support.
+            var connectionString = Configuration["DATABASE_URL"];
+            services
+                .AddEntityFrameworkNpgsql()
+                .AddDbContext<RegistrarContext>(
+                    options => options.UseNpgsql(connectionString)
+                )
+                .AddTransient<ICourseRepository, CourseRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +50,7 @@ namespace Registrar.Api
                 builder =>
                 {
                     builder
-                        .WithOrigins("https://localhost:44317", "http://localhost:46169")
+                        .WithOrigins("https://localhost:9001", "http://localhost:8001")
                         .AllowAnyOrigin()
                         .AllowAnyMethod();
                 }

@@ -22,6 +22,8 @@ namespace Registrar.Api
                 {
                     // Create database on startup.
                     var context = services.GetRequiredService<RegistrarContext>();
+
+                    // Call Migrate() instead of EnsureCreated() since we use Migrations.
                     context.Database.Migrate();
 
                     // Seed the database if necessary.

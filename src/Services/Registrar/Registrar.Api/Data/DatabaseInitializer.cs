@@ -7,8 +7,6 @@ namespace Registrar.Api.Data
     {
         public static void Initialize(RegistrarContext context)
         {
-            //context.Database.EnsureCreated();
-
             var subjects = SeedSubjects(context);
             var instructors = SeedInstructors(context);
             SeedCourses(context, subjects, instructors);

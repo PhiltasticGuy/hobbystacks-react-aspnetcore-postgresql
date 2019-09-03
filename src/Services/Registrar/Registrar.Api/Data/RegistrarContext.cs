@@ -8,9 +8,12 @@ namespace Registrar.Api.Data
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Subject> Subjects { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public RegistrarContext(DbContextOptions<RegistrarContext> options)
+            : base(options)
         {
-            optionsBuilder.UseSqlite("Data Source=registrar.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+            => modelBuilder.ForNpgsqlUseIdentityColumns();
     }
 }
