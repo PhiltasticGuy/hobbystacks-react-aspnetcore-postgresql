@@ -22,12 +22,31 @@ services:
     networks:
       - heroacademy
 
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 8000:8000
+#      - 9000:443
+      - 8001:8001
+#      - 9001:9001
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+    depends_on:
+      - registrar.api
+      - web.spa
+    restart: unless-stopped
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - heroacademy
+
   registrar.api:
     image: ${REGISTRY:-xorcube.azurecr.io}/heroacademy/registrar.api:${TAG:-dev}
     build:
       context: .
       dockerfile: src/Services/Registrar/Registrar.Api/Dockerfile
     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
       - DATABASE_URL=${DATABASE_URL}
     depends_on:
       - postgresql.data
@@ -40,6 +59,9 @@ services:
     build:
       context: .
       dockerfile: src/WebApps/HeroAcademy.WebSpa/Dockerfile.develop
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
     depends_on:
       - registrar.api
     restart: unless-stopped

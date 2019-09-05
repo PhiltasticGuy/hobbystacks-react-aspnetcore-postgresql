@@ -64,9 +64,6 @@ namespace Registrar.FunctionalTests.Setup
 
                             try
                             {
-                                // Call Migrate() instead of EnsureCreated() since we use Migrations.
-                                db.Database.Migrate();
-
                                 // Seed the database if necessary.
                                 DatabaseInitializer.Initialize(db);
                             }

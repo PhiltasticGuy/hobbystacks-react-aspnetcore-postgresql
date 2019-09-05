@@ -56,7 +56,8 @@ namespace Registrar.Api
                 }
             );
 
-            app.UseHttpsRedirection();
+            //TODO: Enable this once HTTPS is configured in nginx.
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

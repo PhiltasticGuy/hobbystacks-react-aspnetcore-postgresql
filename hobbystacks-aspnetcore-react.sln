@@ -28,6 +28,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registrar.FunctionalTests",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1C7D5200-5278-4DBB-B4E0-2DC77878FAFB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{45949D36-AF24-4245-8E62-C0022DC88207}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{0232BB75-7CF1-40BB-966D-7A101CD14F23}"
+	ProjectSection(SolutionItems) = preProject
+		data\nginx\nginx.conf = data\nginx\nginx.conf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +117,8 @@ Global
 		{964BFA15-A56C-46E4-8B31-19F65400D904} = {2E4BA1E8-513D-4786-B814-E9E3D42FAB67}
 		{43B3D227-B11E-42AF-9A3E-0EC948254B6B} = {964BFA15-A56C-46E4-8B31-19F65400D904}
 		{C206CE34-3C0E-408C-86AF-7D8EEFA400DA} = {964BFA15-A56C-46E4-8B31-19F65400D904}
+		{45949D36-AF24-4245-8E62-C0022DC88207} = {0966E979-D1CB-437E-9C64-D4CAB2027766}
+		{0232BB75-7CF1-40BB-966D-7A101CD14F23} = {45949D36-AF24-4245-8E62-C0022DC88207}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {846E696F-A993-4F04-9800-5B5B2C111670}
