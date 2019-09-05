@@ -35,11 +35,23 @@ namespace Registrar.FunctionalTests.Setup
                 .ConfigureServices(
                     (IServiceCollection services) =>
                     {
+                        // Create a new service provider.
+                        var serviceProvider = new ServiceCollection()
+                            .AddEntityFrameworkInMemoryDatabase()
+                            .BuildServiceProvider();
+
+                        // Add a database context (ApplicationDbContext) using an in-memory 
+                        // database for testing.
+                        services.AddDbContext<RegistrarContext>(options =>
+                                {
+                                    options.UseInMemoryDatabase("InMemoryDbForTesting");
+                                    options.UseInternalServiceProvider(serviceProvider);
+                                })
+                            .AddTransient<ICourseRepository, CourseRepository>();
+
                         services
                             .AddMvc()
                             .AddApplicationPart(assembly);
-
-                        services.AddDbContext<RegistrarContext>();
 
                         // Build the service provider.
                         var sp = services.BuildServiceProvider();
@@ -50,12 +62,9 @@ namespace Registrar.FunctionalTests.Setup
                             var db = scopedServices.GetRequiredService<RegistrarContext>();
                             var logger = scopedServices.GetRequiredService<ILogger<Program>>();
 
-                            // Ensure the database is created.
-                            db.Database.EnsureCreated();
-
                             try
                             {
-                                // Create database on startup.
+                                // Call Migrate() instead of EnsureCreated() since we use Migrations.
                                 db.Database.Migrate();
 
                                 // Seed the database if necessary.
