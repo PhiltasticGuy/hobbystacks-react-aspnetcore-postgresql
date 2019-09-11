@@ -6,6 +6,11 @@
 # Environment Variables
 .env
 
+# SSL Certificates
+data/certbot/*
+*.pfx
+*.pem
+
 # User-specific files
 *.suo
 *.user

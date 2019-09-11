@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
 		.gitignore = .gitignore
+		infrastructure\powershell\exportIisDevCertificates.ps1 = infrastructure\powershell\exportIisDevCertificates.ps1
+		infrastructure\powershell\provisionContainerRegistry.ps1 = infrastructure\powershell\provisionContainerRegistry.ps1
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -33,6 +35,24 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{0232BB75-7CF1-40BB-966D-7A101CD14F23}"
 	ProjectSection(SolutionItems) = preProject
 		data\nginx\nginx.conf = data\nginx\nginx.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{A704F75B-4832-49DC-967B-5EACC6BE10B1}"
+	ProjectSection(SolutionItems) = preProject
+		infrastructure\powershell\exportIisDevCertificates.ps1 = infrastructure\powershell\exportIisDevCertificates.ps1
+		infrastructure\powershell\provisionContainerRegistry.ps1 = infrastructure\powershell\provisionContainerRegistry.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "certbot", "certbot", "{9B134275-70C0-4C7F-9719-1BB4BC1768CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{AA142223-82F7-4A12-8749-C327C921D255}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "live", "live", "{602F5E11-2E8B-45E8-9337-EA945EBF6045}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app.hobbystacks.com", "app.hobbystacks.com", "{F40F077C-A3BF-4550-824D-6A2FBAC1F0A5}"
+	ProjectSection(SolutionItems) = preProject
+		data\certbot\conf\live\app.hobbystacks.com\fullchain.pem = data\certbot\conf\live\app.hobbystacks.com\fullchain.pem
+		data\certbot\conf\live\app.hobbystacks.com\privkey.pem = data\certbot\conf\live\app.hobbystacks.com\privkey.pem
 	EndProjectSection
 EndProject
 Global
@@ -119,6 +139,11 @@ Global
 		{C206CE34-3C0E-408C-86AF-7D8EEFA400DA} = {964BFA15-A56C-46E4-8B31-19F65400D904}
 		{45949D36-AF24-4245-8E62-C0022DC88207} = {0966E979-D1CB-437E-9C64-D4CAB2027766}
 		{0232BB75-7CF1-40BB-966D-7A101CD14F23} = {45949D36-AF24-4245-8E62-C0022DC88207}
+		{A704F75B-4832-49DC-967B-5EACC6BE10B1} = {0966E979-D1CB-437E-9C64-D4CAB2027766}
+		{9B134275-70C0-4C7F-9719-1BB4BC1768CD} = {45949D36-AF24-4245-8E62-C0022DC88207}
+		{AA142223-82F7-4A12-8749-C327C921D255} = {9B134275-70C0-4C7F-9719-1BB4BC1768CD}
+		{602F5E11-2E8B-45E8-9337-EA945EBF6045} = {AA142223-82F7-4A12-8749-C327C921D255}
+		{F40F077C-A3BF-4550-824D-6A2FBAC1F0A5} = {602F5E11-2E8B-45E8-9337-EA945EBF6045}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {846E696F-A993-4F04-9800-5B5B2C111670}
