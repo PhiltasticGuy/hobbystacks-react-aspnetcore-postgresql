@@ -43,8 +43,7 @@ namespace HeroAcademy.WebSpa
                 app.UseHsts();
             }
 
-            //TODO: Enable this once HTTPS is configured in nginx.
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

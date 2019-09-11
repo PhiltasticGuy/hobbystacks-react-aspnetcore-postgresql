@@ -50,14 +50,13 @@ namespace Registrar.Api
                 builder =>
                 {
                     builder
-                        .WithOrigins("https://localhost:9001", "http://localhost:8001")
+                        .WithOrigins("https://localhost:9001", "http://localhost:9000")
                         .AllowAnyOrigin()
                         .AllowAnyMethod();
                 }
             );
 
-            //TODO: Enable this once HTTPS is configured in nginx.
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

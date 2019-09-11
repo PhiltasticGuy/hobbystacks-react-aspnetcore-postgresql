@@ -32,7 +32,7 @@ export class Courses extends Component<CoursesProps, CoursesState> {
         this.state = { courses: [], loading: true };
 
         //TODO: URL should be in settings.
-        fetch('http://localhost:8000/api/v1/courses')
+        fetch('https://localhost:8001/api/v1/courses')
             .then(response => response.json())
             .then(data => {
                 this.setState({ courses: data, loading: false });

@@ -26,8 +26,8 @@ services:
     image: nginx:alpine
     ports:
       - 8000:8000
-      - 9000:9000
       - 8001:8001
+      - 9000:9000
       - 9001:9001
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt

@@ -23,7 +23,7 @@ export class FetchData extends Component<FetchDataProps, FetchDataState> {
         this.state = { forecasts: [], loading: true };
 
         //TODO: URL should be in settings.
-        fetch('http://localhost:8000/api/v1/SampleData/WeatherForecasts')
+        fetch('https://localhost:8001/api/v1/SampleData/WeatherForecasts')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
