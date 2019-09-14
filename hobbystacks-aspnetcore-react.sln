@@ -40,6 +40,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "certbot", "certbot", "{9B134275-70C0-4C7F-9719-1BB4BC1768CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{AA142223-82F7-4A12-8749-C327C921D255}"
+	ProjectSection(SolutionItems) = preProject
+		data\certbot\conf\options-ssl-nginx.conf = data\certbot\conf\options-ssl-nginx.conf
+		data\certbot\conf\ssl-dhparams.pem = data\certbot\conf\ssl-dhparams.pem
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "live", "live", "{602F5E11-2E8B-45E8-9337-EA945EBF6045}"
 EndProject
@@ -53,6 +57,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "powershell", "powershell", 
 	ProjectSection(SolutionItems) = preProject
 		infrastructure\powershell\exportIisDevCertificates.ps1 = infrastructure\powershell\exportIisDevCertificates.ps1
 		infrastructure\powershell\provisionContainerRegistry.ps1 = infrastructure\powershell\provisionContainerRegistry.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "www", "www", "{7E31F0B6-B0C1-40A4-800C-69170ABD3BC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{72F27696-2E90-41AB-A5AC-F5E3F2C7322D}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\init-letsencrypt.sh = deploy\init-letsencrypt.sh
 	EndProjectSection
 EndProject
 Global
@@ -145,6 +156,8 @@ Global
 		{602F5E11-2E8B-45E8-9337-EA945EBF6045} = {AA142223-82F7-4A12-8749-C327C921D255}
 		{F40F077C-A3BF-4550-824D-6A2FBAC1F0A5} = {602F5E11-2E8B-45E8-9337-EA945EBF6045}
 		{4F0FB0E3-E171-467B-97EF-586B6CACC587} = {A704F75B-4832-49DC-967B-5EACC6BE10B1}
+		{7E31F0B6-B0C1-40A4-800C-69170ABD3BC7} = {9B134275-70C0-4C7F-9719-1BB4BC1768CD}
+		{72F27696-2E90-41AB-A5AC-F5E3F2C7322D} = {0966E979-D1CB-437E-9C64-D4CAB2027766}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {846E696F-A993-4F04-9800-5B5B2C111670}
