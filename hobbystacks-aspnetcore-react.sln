@@ -64,7 +64,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "www", "www", "{7E31F0B6-B0C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{72F27696-2E90-41AB-A5AC-F5E3F2C7322D}"
 	ProjectSection(SolutionItems) = preProject
+		deploy\deploy.sh = deploy\deploy.sh
+		deploy\docker-compose.deploy.yml = deploy\docker-compose.deploy.yml
 		deploy\init-letsencrypt.sh = deploy\init-letsencrypt.sh
+		deploy\nginx.deploy.conf = deploy\nginx.deploy.conf
 	EndProjectSection
 EndProject
 Global

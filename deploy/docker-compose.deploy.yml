@@ -1,0 +1,64 @@
+version: '3.4'
+
+services:
+  postgresql.data:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    restart: unless-stopped
+    networks:
+      - hobbystacks
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    restart: unless-stopped
+    networks:
+      - hobbystacks
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+      - ./data/nginx:/etc/nginx/conf.d
+    depends_on:
+      - registrar.api
+      - web.spa
+    restart: unless-stopped
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - hobbystacks
+
+  registrar.api:
+    image: ${REGISTRY:-xorcube.azurecr.io}/hobbystacks/registrar.api:${TAG:-latest}
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      - postgresql.data
+    restart: unless-stopped
+    networks:
+      - hobbystacks
+
+  web.spa:
+    image: ${REGISTRY:-xorcube.azurecr.io}/hobbystacks/web.spa:${TAG:-latest}
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    depends_on:
+      - registrar.api
+    restart: unless-stopped
+    networks:
+      - hobbystacks
+
+networks:
+  hobbystacks:
