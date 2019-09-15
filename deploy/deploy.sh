@@ -11,14 +11,14 @@ trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 logfile="deploy.log"
 
 # Rename deployment files.
-mv hobbystacks/deploy/nginx.deploy.conf hobbystacks/data/nginx/nginx.conf
+mkdir --parents hobbystacks/data/nginx/; mv hobbystacks/deploy/nginx.deploy.conf "${_}nginx.conf"
 mv hobbystacks/deploy/docker-compose.deploy.yml hobbystacks/docker-compose.yml
 
-docker-compose down &>> $logfile
+docker-compose -f hobbystacks/docker-compose.yml down &>> $logfile
 docker login -u $1 -p $2 xorcube.azurecr.io &>> $logfile
-docker-compose pull &>> $logfile
+docker-compose -f hobbystacks/docker-compose.yml pull &>> $logfile
 docker logout xorcube.azurecr.io &>> $logfile
-docker-compose up -d &>> $logfile
+docker-compose -f hobbystacks/docker-compose.yml up -d &>> $logfile
 
 cat $logfile
 rm $logfile
