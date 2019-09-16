@@ -75,15 +75,8 @@ fi
 eval set -- "$POSITIONAL"
 
 if [ -d "$certbotDataPath" ]; then
-  read -p "Existing data found in '$certbotDataPath'. Continue and replace existing certificate? (y/N) " decision
-  echo
-  if [ "$decision" == "Y" ] || [ "$decision" == "y" ]; then
-    echo "### Deleting existing files."
-    rm -rf $certbotDataPath/
-  else
-    echo "### Initialization process aborted."
-    exit
-  fi
+	echo "### Deleting existing files."
+	rm -rf $certbotDataPath/
 fi
 
 echo

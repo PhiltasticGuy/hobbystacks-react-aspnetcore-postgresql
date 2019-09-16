@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### Assumes that the script is called from ./hobbystacks/.
+
 # exit when any command fails
 set -e
 
@@ -11,14 +13,23 @@ trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 logfile="deploy.log"
 
 # Rename deployment files.
-mkdir --parents hobbystacks/data/nginx/; mv hobbystacks/deploy/nginx.deploy.conf "${_}nginx.conf"
-mv hobbystacks/deploy/docker-compose.deploy.yml hobbystacks/docker-compose.yml
+mkdir --parents data/nginx/
+mv deploy/nginx.deploy.conf data/nginx/nginx.conf
+mv deploy/docker-compose.deploy.yml docker-compose.yml
 
-docker-compose -f hobbystacks/docker-compose.yml down &>> $logfile
+# Initialize SSL certificates.
+if [ ! -d "data/certbot/conf/live/app.hobbystacks.com" ]
+then
+	chmod +x deploy/init-letsencrypt.sh
+	./deploy/init-letsencrypt.sh -d app.hobbystacks.com api.hobbystacks.com -e "it@xorcube.com" -p "./data/certbot" -s
+fi
+
+# Prepare and launch Docker containers.
+docker-compose -f docker-compose.yml down &>> $logfile
 docker login -u $1 -p $2 xorcube.azurecr.io &>> $logfile
-docker-compose -f hobbystacks/docker-compose.yml pull &>> $logfile
+docker-compose -f docker-compose.yml pull &>> $logfile
 docker logout xorcube.azurecr.io &>> $logfile
-docker-compose -f hobbystacks/docker-compose.yml up -d &>> $logfile
+docker-compose -f docker-compose.yml up -d &>> $logfile
 
 cat $logfile
 rm $logfile
