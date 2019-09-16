@@ -18,10 +18,10 @@ mv deploy/nginx.deploy.conf data/nginx/nginx.conf
 mv deploy/docker-compose.deploy.yml docker-compose.yml
 
 # Initialize SSL certificates.
-if [ ! -d "data/certbot/conf/live/app.hobbystacks.com" ]
+if [ ! -d "data/certbot/conf/live/$4" ]
 then
 	chmod +x deploy/init-letsencrypt.sh
-	./deploy/init-letsencrypt.sh -d app.hobbystacks.com api.hobbystacks.com -e "it@xorcube.com" -p "./data/certbot" -s
+	./deploy/init-letsencrypt.sh -d $3 -e "$5" -p "$6" &>> $logfile
 fi
 
 # Prepare and launch Docker containers.
