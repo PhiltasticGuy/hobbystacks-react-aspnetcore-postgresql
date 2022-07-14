@@ -1,4 +1,4 @@
-# Hobby Stacks - ASP.NET Core / React
+# Hobby Stacks - React / ASP.NET Core / PostgreSQL
 
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/PhiltasticGuy/hobbystacks)
 
@@ -8,7 +8,7 @@ Our goal is to define a technology stack for hobby projects with **minimal costs
 
 We decided to gear this tech stack towards **commercial projects** which meant opting for a private container registry and code repository.
 
-This example application uses **.NET Core (ASP.NET Core)**, **React** and **PostgreSQL**.
+This example application uses **React**, **.NET Core (ASP.NET Core)** and **PostgreSQL**.
 
 | Features                         | Tools                                  | Alternatives       | Costs |
 | -------------------------------- | -------------------------------------- | ------------------ | ----- |
@@ -145,7 +145,7 @@ More details.
 
 - **Philippe Turcotte** - *Initial work*
 
-See also the list of [contributors](https://github.com/PhiltasticGuy/aspnetcore-react-hobby-tech-stack/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/PhiltasticGuy/hobbystacks-react-aspnetcore-postgresql/contributors) who participated in this project.
 
 ## License
 
