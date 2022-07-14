@@ -1,20 +1,28 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Hobby Stacks - ASP.NET Core / React
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/PhiltasticGuy/hobbystacks)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Why create *Hobby Stacks*?
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Our goal is to define a technology stack for hobby projects with **minimal costs**. We also want to offer real-world examples that go beyond canned tutorials showcasing isolated technologies or features.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+We decided to gear this tech stack towards **commercial projects** which meant opting for a private container registry and code repository.
+
+This example application uses **.NET Core (ASP.NET Core)**, **React** and **PostgreSQL**.
+
+| Features                         | Tools                                  | Alternatives       | Costs |
+| -------------------------------- | -------------------------------------- | ------------------ | ----- |
+| Hosting                          | [DigitalOcean](https://www.digitalocean.com/pricing/#Compute) | [Vultur](https://www.vultr.com/products/cloud-compute/#pricing) | **5$**    |
+| Container Registry (**Private**) | [Azure Container Registry](https://azure.microsoft.com/en-ca/services/container-registry/) | [GitLab Container Registry](https://docs.gitlab.com/ee/user/project/container_registry.html)* | **5$** / Free |
+| Repositories (**Private**)       | [Azure DevOps](https://azure.microsoft.com/en-ca/services/devops/git-repos/) | GitLab, GitHub      | *Free*  |
+| CI/CD Pipelines                  | [Azure Pipelines](https://azure.microsoft.com/en-ca/services/devops/pipelines/) | GitLab, CircleCI, [Travis CI](https://travis-ci.com/plans/) | *Free*  |
+| Web Server (Reverse Proxy)       | Nginx                                  |                    | *Free*  |
+| Web Performance & Security       | [Cloudflare](https://www.cloudflare.com/plans/#compare-features) | | *Free*  |
+| SSL Certificates                 | [Let's Encrypt](https://letsencrypt.org/about/) + [Certbot](https://certbot.eff.org/about/) | | *Free*  |
+| Multi-Container Tool             | Docker Compose                         |                    | *Free*  |
+| IDE                              | [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) | [Visual Studio Code](https://code.visualstudio.com/) | *Free*  |
+| Front-end + UI                   | ASP.NET Core - MVC + React             |                    | *Free*  |
+| APIs                             | ASP.NET Core - Web API                 |                    | *Free*  |
+| Database                         | PostgreSQL                             |                    | *Free*  |
+
+*\* GitLab Container Registry is only available for projects hosted on GitLab.*
